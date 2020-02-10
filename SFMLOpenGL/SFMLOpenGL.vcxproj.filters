@@ -30,6 +30,9 @@
     <ClInclude Include="stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Vector2f.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -39,6 +42,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="stb_image.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2f.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
