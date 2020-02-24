@@ -35,7 +35,7 @@ private:
 	sf::Clock clock;
 	sf::Time elapsed;
 
-	float scale{ 20.0f };
+	float scale{ 40.0f };
 	vector3 translation{ 0,0,0 };
 	vector3 rotation{ 0,0,0 };
 	float rotationAngle = 1.0f;

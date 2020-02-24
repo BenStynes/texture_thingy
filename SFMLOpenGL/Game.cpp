@@ -41,8 +41,8 @@ typedef struct
 	float texel[2];
 } Vertex;
 
-Vertex vertex[8];
-Vertex initialvertex[8];
+Vertex vertex[24];
+Vertex initialvertex[24];
 GLubyte triangles[36];
 Matrix3 matrix;
 /* Variable to hold the VBO identifier and shader data */
@@ -86,7 +86,7 @@ void Game::initialize()
 
 	/* Vertices counter-clockwise winding */
 
-	vertex[0].coordinate[0] = -1.0f;
+	vertex[0].coordinate[0] = -1.0f;  //FRONT FACE
 	vertex[0].coordinate[1] = -1.0f;
 	vertex[0].coordinate[2] = 1.0f;
 
@@ -102,21 +102,98 @@ void Game::initialize()
 	vertex[3].coordinate[1] = 1.0f;
 	vertex[3].coordinate[2] = 1.0f;
 
-	vertex[4].coordinate[0] = -1.0f;
-	vertex[4].coordinate[1] = -1.0f;
+	/// <summary>
+	/// 
+	/// </summary>
+	vertex[4].coordinate[0] = 1.0f; //BACK 
+	vertex[4].coordinate[1] = 1.0f;
 	vertex[4].coordinate[2] = -1.0f;
 
-	vertex[5].coordinate[0] = 1.0f;
-	vertex[5].coordinate[1] = -1.0f;
+	vertex[5].coordinate[0] = -1.0f;
+	vertex[5].coordinate[1] = 1.0f;
 	vertex[5].coordinate[2] = -1.0f;
 
-	vertex[6].coordinate[0] = 1.0f;
-	vertex[6].coordinate[1] = 1.0f;
+	vertex[6].coordinate[0] = -1.0f;
+	vertex[6].coordinate[1] = -1.0f;
 	vertex[6].coordinate[2] = -1.0f;
 
-	vertex[7].coordinate[0] = -1.0f;
-	vertex[7].coordinate[1] = 1.0f;
+	vertex[7].coordinate[0] =  1.0f;//
+	vertex[7].coordinate[1] = -1.0f;
 	vertex[7].coordinate[2] = -1.0f;
+	/// <summary>
+	/// 
+	// </summary>
+	vertex[8].coordinate[0] = -1.0f;// LEFT
+	vertex[8].coordinate[1] = -1.0f;
+	vertex[8].coordinate[2] = -1.0f;
+
+	vertex[9].coordinate[0] = -1.0f;//12
+	vertex[9].coordinate[1] = -1.0f;
+	vertex[9].coordinate[2] = 1.0f;
+
+	vertex[10].coordinate[0] = -1.0f;//22
+	vertex[10].coordinate[1] = 1.0f;
+	vertex[10].coordinate[2] = 1.0f;
+
+	vertex[11].coordinate[0] = -1.0f;//23
+	vertex[11].coordinate[1] =  1.0f;
+	vertex[11].coordinate[2] = -1.0f;
+	/* <summary>*/
+	/// 
+	/// </summary>
+	vertex[12].coordinate[0] = 1.0f;// Right
+	vertex[12].coordinate[1] = 1.0f;
+	vertex[12].coordinate[2] = 1.0f;
+
+	vertex[13].coordinate[0] = 1.0f;//25
+	vertex[13].coordinate[1] = 1.0f;
+	vertex[13].coordinate[2] =-1.0f;
+
+	vertex[14].coordinate[0] =  1.0f;//26
+	vertex[14].coordinate[1] = -1.0f;
+	vertex[14].coordinate[2] =  -1.0f;
+
+	vertex[15].coordinate[0] =  1.0f;//27
+	vertex[15].coordinate[1] = -1.0f;
+	vertex[15].coordinate[2] =  1.0f;
+	/// <summary>
+	/// 
+	/// </summary>
+	vertex[16].coordinate[0] =-1.0f;// top
+	vertex[16].coordinate[1] = 1.0f;
+	vertex[16].coordinate[2] = 1.0f;
+
+	vertex[17].coordinate[0] = 1.0f;//31
+	vertex[17].coordinate[1] = 1.0f;
+	vertex[17].coordinate[2] = -1.0f;
+
+	vertex[18].coordinate[0] = 1.0f;//32
+	vertex[18].coordinate[1] = 1.0f;
+	vertex[18].coordinate[2] = 1.0f;
+
+	vertex[19].coordinate[0] = -1.0f;//33
+	vertex[19].coordinate[1] = 1.0f;
+	vertex[19].coordinate[2] = -1.0f;
+	/// <summary>
+	/// 
+	/// </summary>
+	vertex[20].coordinate[0] = 1.0f;//bottom
+	vertex[20].coordinate[1] = -1.0f;
+	vertex[20].coordinate[2] = -1.0f;
+
+	vertex[21].coordinate[0] = -1.0f;//35
+	vertex[21].coordinate[1] = -1.0f;
+	vertex[21].coordinate[2] =  1.0f;
+
+	vertex[22].coordinate[0] = 1.0f;//36
+	vertex[22].coordinate[1] = -1.0f;
+	vertex[22].coordinate[2] = -1.0f;
+
+	vertex[23].coordinate[0] = 1.0f;//37
+	vertex[23].coordinate[1] = -1.0f;
+	vertex[23].coordinate[2] = 1.0f;
+
+	
 
 	vertex[0].color[0] = 1.0f;
 	vertex[0].color[1] = 0.0f;
@@ -189,20 +266,71 @@ void Game::initialize()
 	vertex[7].texel[0] = 0.75f;
 	vertex[7].texel[1] = 0.25f;
 
+	vertex[8].texel[0] = 0.25f;
+	vertex[8].texel[1] = 0.25f;
+
+	vertex[9].texel[0] = 0.25f;
+	vertex[9].texel[1] = 0.50f;
+
+	vertex[10].texel[0] = 0.50f;
+	vertex[10].texel[1] = 0.0f;
+
+	vertex[11].texel[0] = 0.50f;
+	vertex[11].texel[1] = 0.00f;
+
+	vertex[12].texel[0] = 0.75f;
+	vertex[12].texel[1] = 0.50f;
+
+	vertex[13].texel[0] = 1.0f;
+	vertex[13].texel[1] = 0.50f;
+
+	vertex[14].texel[0] = 1.0f;
+	vertex[14].texel[1] = 0.25f;
+
+	vertex[15].texel[0] = 0.75f;
+	vertex[15].texel[1] = 0.25f;
+
+	vertex[16].texel[0] = 0.25f;
+	vertex[16].texel[1] = 0.50f;
+
+	vertex[17].texel[0] = 0.25f;
+	vertex[17].texel[1] = 0.25f;
+
+	vertex[18].texel[0] = 0.50f;
+	vertex[18].texel[1] = 0.25f;
+
+	vertex[19].texel[0] = 0.50f;
+	vertex[19].texel[1] = 0.50f;
+
+	vertex[20].texel[0] = 0.75f;
+	vertex[20].texel[1] = 0.50f;
+
+	vertex[21].texel[0] = 1.0f;
+	vertex[21].texel[1] = 0.50f;
+
+	vertex[22].texel[0] = 1.0f;
+	vertex[22].texel[1] = 0.25f;
+
+	vertex[23].texel[0] = 0.75f;
+	vertex[23].texel[1] = 0.25f;
+
 	/*Index of Poly / Triangle to Draw */
-	triangles[0] = 1;   triangles[1] = 5;   triangles[2] = 6;
-	triangles[3] = 6;   triangles[4] = 2;   triangles[5] = 1;
-	triangles[6] = 4;   triangles[7] = 0;   triangles[8] = 3;
-	triangles[9] = 3;   triangles[10] = 7;   triangles[11] = 4;
-	triangles[12] = 3;   triangles[13] = 2;   triangles[14] = 6;
-	triangles[15] = 6;   triangles[16] = 7;   triangles[17] = 3;
-	triangles[18] = 0;   triangles[19] = 4;   triangles[20] = 5;
-	triangles[21] = 5;   triangles[22] = 1;   triangles[23] = 0;
-	triangles[24] = 0;   triangles[25] = 1;   triangles[26] = 2;
-	triangles[27] = 2;   triangles[28] = 3;   triangles[29] = 0;
-	triangles[30] = 4;   triangles[31] = 7;   triangles[32] = 6;
-	triangles[33] = 6;   triangles[34] = 5;   triangles[35] = 4;
-	for (int i = 0; i < 8; i++)
+	triangles[0] = 0;   triangles[1] = 1;   triangles[2] = 2;
+	triangles[3] = 2;   triangles[4] = 3;   triangles[5] = 0;
+	triangles[6] = 4;   triangles[7] = 5;   triangles[8] = 6;
+	triangles[9] = 6;   triangles[10] = 7;   triangles[11] = 4;
+
+	triangles[12] = 8;   triangles[13] = 9;   triangles[14] = 10;
+	triangles[15] = 10;   triangles[16] = 11;   triangles[17] = 8;
+	triangles[18] = 12;   triangles[19] = 13;   triangles[20] = 14;
+	triangles[21] = 14;   triangles[22] = 15;   triangles[23] = 12;
+
+	triangles[24] = 16;   triangles[25] = 17;   triangles[26] = 18;
+	triangles[27] = 18;   triangles[28] = 19;   triangles[29] = 16;
+	triangles[30] = 20;   triangles[31] = 21;   triangles[32] = 22;
+	triangles[33] = 22;   triangles[34] = 23;   triangles[35] = 20;
+
+	for (int i = 0; i < 24; i++)
 	{
 		initialvertex[i] = vertex[i];
 	}
@@ -260,7 +388,7 @@ void Game::initialize()
 		"out vec4 fColor;"
 		"void main() {"
 		//"	fColor = vec4(1.0f, 1.0f, 0.0f, 1.0f);"
-		"	fColor = texture(f_texture, texel.st);"
+		"	fColor =color + texture(f_texture, texel.st);"
 		"}"; //Fragment Shader Src
 
 	DEBUG_MSG("Setting Up Fragment Shader");
@@ -396,7 +524,7 @@ void Game::update()
 		identity = identity * matrix.RotationY(rotation.getY());
 		identity = identity * matrix.RotationZ(rotation.getZ());
 
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < 24; i++)
 		{
 
 
