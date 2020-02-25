@@ -61,7 +61,7 @@ GLuint	index,		//Index to draw
 //const string filename = "texture.tga";
 //const string filename = "cube.tga";
 
-const std::string filename = "cube.tga";
+const std::string filename = "BetterDice.tga";
 
 int width; //width of texture
 int height; //height of texture
